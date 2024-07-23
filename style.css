@@ -10,15 +10,24 @@
 }
 
 .background {  
-  width: "";
-  background-image: url("/img/bg-desktop.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative; 
+  background-image: url('/img/bg-mobile.png');
   background-position: center;
 }
 
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.548);
+}
+
+
 header {
-  position: fixed;
+  position: relative;
   width: 100%;
   top: 0;
   right: 0;
@@ -29,14 +38,6 @@ header {
   background: transparent;
   padding: 25px 10%;
   transition-duration: 0.4s;
-}
-header.sticky {
-  padding: 12px 10%;
-  background: var(--text-color);
-}
-
-.sticky .navbar a::after {
-  background: var(--text-color);
 }
 
 .logo {
@@ -169,7 +170,8 @@ section {
   }
 
   .navbar a:hover {
-    background: var(--text-color);
+    background: var(--brand-color);
+    border-radius: 40px;
   }
 
   .navbar a::after {
