@@ -18,7 +18,7 @@ body {
   color: var(--text-color);
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -179,8 +179,9 @@ header {
   color: var(--text-color)
 }
 
-.carrossel-container {
+.home-content {border:1px solid red;
   display: flex;
+  flex-direction: row;
 }
 
 .row {
@@ -200,6 +201,10 @@ header {
   gap: 8px;
   padding: 15px;
 
+  .rating img {
+    width: 16px;
+  }
+
 
   h4 {
     width: 100px;
@@ -210,24 +215,34 @@ header {
     opacity: 0px;
     background: #181818;
 
-    font-family: Open Sans;
     font-size: 12px;
     font-weight: 600;
     line-height: 16.34px;
-    text-align: left;
     color: #FFA634;
   }
 
 
-
   h2 {
-    font-family: Open Sans;
     font-size: 12px;
     font-weight: 600;
     line-height: 16.34px;
-    text-align: left;
   }
 
+}
+
+.rating.star {
+  filter: saturate(0) brightness(2);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.rating:hover .star,
+.rating .star.ranked {
+  filter: saturate(1) brightness(1);
+}
+
+.rating .star:hover~.star {
+  filter: saturate(0) brightness(2);
 }
 
 
@@ -298,7 +313,7 @@ header {
 
 @media (min-width: 1024px) {
   body {
-    background-image: url("/img/bg-desktop.png") no-repeat center center;
+    background: url("/img/bg-desktop.png") no-repeat center center;
     background-size: cover;
   }
 
@@ -423,7 +438,7 @@ header {
 
     .btn {
       width: 216px;
-      height: 51px; 
+      height: 51px;
       padding: 12px 40px;
       font-size: 20px;
       font-weight: 700;
