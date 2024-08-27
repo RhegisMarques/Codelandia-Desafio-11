@@ -18,20 +18,16 @@ window.onscroll = () => {
 };
 
 
-let currentIndex = 0;
+const stars = document.querySelectorAll(".star");
 
-function moveSlide(step) {
-  const container = document.querySelector('.carrossel-container');
-  const slides = document.querySelectorAll('.row');
-  const totalSlides = slides.length;
-  const slideWidth = slides[0].offsetWidth;
-  const containerWidth = container.offsetWidth;
-
-  // Atualiza o índice e faz o loop se necessário
-  currentIndex = (currentIndex + step + totalSlides) % totalSlides;
-  // Calcula a nova posição de transformação
-  const offset = -currentIndex * slideWidth;
-  
-  // Se houver mais slides do que cabem no contêiner, ajuste a posição
-  container.style.transform = `translateX(${offset}px)`;
-}
+stars.forEach((star, clickedStar) => {
+  star.onclick = () => {
+    stars.forEach((currentStar, currentIndex) => {
+      if (currentIndex <= clickedStar) {
+        currentStar.classList.add("ranked");
+      } else if (currentIndex >= clickedStar) {
+        currentStar.classList.remove("ranked");
+      }
+    });
+  };
+});
