@@ -18,16 +18,16 @@ window.onscroll = () => {
 };
 
 
-const stars = document.querySelectorAll(".star");
+// const stars = document.querySelectorAll(".star");
 
-stars.forEach((star, clickedStar) => {
-  star.onclick = () => {
-    stars.forEach((currentStar, currentIndex) => {
-      if (currentIndex <= clickedStar) {
-        currentStar.classList.add("ranked");
-      } else if (currentIndex >= clickedStar) {
-        currentStar.classList.remove("ranked");
-      }
-    });
-  };
-});
+// stars.forEach((star, clickedStar) => {
+//   star.onclick = () => {
+//     stars.forEach((currentStar, currentIndex) => {
+//       if (currentIndex <= clickedStar) {
+//         currentStar.classList.add("ranked");
+//       } else if (currentIndex >= clickedStar) {
+//         currentStar.classList.remove("ranked");
+//       }
+//     });
+//   };
+// });

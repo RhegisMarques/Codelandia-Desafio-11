@@ -39,10 +39,8 @@ body {
 
 
 header {
-  position: relative;
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   background: transparent;
   padding: 24px 24px;
@@ -59,36 +57,28 @@ header {
 }
 
 #menu-icon {
-  display: initial;
+  cursor: pointer;
   font-size: 32px;
 }
 
 .navbar {
-  position: absolute;
+  position: relative;
   display: flex;
   top: -700px;
   left: 0;
   right: 0;
-  padding: 20px;
   gap: 20px;
   flex-direction: column;
   background: var(--bg-color);
   transition: all.30s;
   text-align: right;
+  background: transparent;
 }
 
-.navbar a {
+.navbar a i{
   display: block;
 }
 
-.navbar a:hover {
-  background: var(--brand-color);
-  border-radius: 10px;
-}
-
-.navbar a::after {
-  display: flex;
-}
 
 .navbar.active {
   top: 100%;
@@ -172,6 +162,7 @@ header {
   font-size: 16px;
   font-weight: 600;
   line-height: 21.79px;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -213,7 +204,7 @@ header {
     gap: 10px;
     border-radius: 0px 8px;
     opacity: 0px;
-    background: #181818;
+    background: #000000;
 
     font-size: 12px;
     font-weight: 600;
@@ -229,7 +220,7 @@ header {
   }
 
 }
-
+/* 
 .rating.star {
   filter: saturate(0) brightness(2);
   cursor: pointer;
@@ -243,7 +234,7 @@ header {
 
 .rating .star:hover~.star {
   filter: saturate(0) brightness(2);
-}
+} */
 
 
 @media (min-width: 640px) {
@@ -255,12 +246,7 @@ header {
   header {
     padding: 24px 32px;
   }
-
-  #menu-icon {
-    display: initial;
-    font-size: 32px;
-  }
-
+  
 
   .home-container {
     padding: 48px 32px;
@@ -317,37 +303,21 @@ header {
     background-size: cover;
   }
 
-  header {
-    position: relative;
+  header {border: 1px solid red;
     width: 100%;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: transparent;
-    padding: 29px 64px;
-  }
-
-  .navbar {
-    position: relative;
     display: flex;
     flex-direction: row;
-    gap: 48px;
+    justify-content: space-between;
+    background: transparent;
+    padding: 24px 64px;
   }
 
-  .navbar li {
-    position: relative;
-  }
-
-  .navbar a {
-    color: var(--text-color);
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 10px 10px;
-  }
-
+  .navbar {border: 1px solid red;
+    top: 100%;
+    gap: 20px;
+    flex-direction: row;
+  } 
+  
   #menu-icon {
     display: none;
   }
