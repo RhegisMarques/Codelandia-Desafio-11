@@ -1,22 +1,53 @@
-const header = document.querySelector("header");
+class MobileNavbar {
+  constructor(mobileMenu, navList, navLinks) {
+    this.mobileMenu = document.querySelector(mobileMenu);
+    this.navList = document.querySelector(navList);
+    this.navLinks = document.querySelectorAll(navLinks);
+    this.activeClass = "active";
 
-window.addEventListener("scroll", function () {
-  header.classList.toggle("sticky", window.scrollY > 0);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  animateLinks() {
+    this.navLinks.forEach((link, index) => {
+      link.style.animation
+        ? (link.style.animation = "")
+        : (link.style.animation = `navLinkFade 0.5s ease forwards ${
+            index / 7 + 0.3
+          }s`);
+    });
+  }
+
+  handleClick() {
+    this.navList.classList.toggle(this.activeClass);
+    this.mobileMenu.classList.toggle(this.activeClass);
+    this.animateLinks();
+  }
+
+  addClickEvent() {
+    this.mobileMenu.addEventListener("click", this.handleClick);
+  }
+
+  init() {
+    if (this.mobileMenu) {
+      this.addClickEvent();
+    }
+    return this;
+  }
+}
+
+const mobileNavbar = new MobileNavbar(
+  ".mobile-menu",
+  ".nav-list",
+  ".nav-list li"
+);
+
+mobileNavbar.init();
+
+$J(function () {
+  var $DiscountCountdown = $J("#564166_countdown_0");
+  if ($DiscountCountdown) InitDailyDealTimer($DiscountCountdown, 1671732000);
 });
-
-let menu = document.querySelector("#menu-icon");
-let navbar = document.querySelector(".navbar");
-
-menu.onclick = () => {
-  menu.classList.toggle("bx-x");
-  navbar.classList.toggle("active");
-};
-
-window.onscroll = () => {
-  menu.classList.remove("bx-x");
-  navbar.classList.remove("active");
-};
-
 
 // const stars = document.querySelectorAll(".star");
 
